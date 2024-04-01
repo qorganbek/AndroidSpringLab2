@@ -13,5 +13,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "HistoricalFigures"
+rootProject.name = "Historical Figures"
 include(":app")
