@@ -5,9 +5,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.example.historicalfigures.R
 import com.example.historicalfigures.adapter.HistoricalFiguresListAdapter
 import com.example.historicalfigures.databinding.FragmentFiguresListBinding
 import com.example.historicalfigures.model.service.FakeService
+import com.example.historicalfigures.utils.FigureFragment
+import com.example.historicalfigures.utils.MAIN
 
 class HistoricalFiguresListFragment : Fragment() {
     companion object {
@@ -18,12 +21,14 @@ class HistoricalFiguresListFragment : Fragment() {
     private val binding
         get() = _binding!!
 
-    private val adapter: HistoricalFiguresListAdapter by lazy {
+    val adapter: HistoricalFiguresListAdapter by lazy {
         HistoricalFiguresListAdapter()
     }
 
     private fun setupUI(){
-
+        with(binding){
+            figuresList.adapter = adapter
+        }
     }
 
     override fun onCreateView(
@@ -37,10 +42,11 @@ class HistoricalFiguresListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        FigureFragment = newInstance()
         setupUI()
-        adapter.setItems(FakeService.historicalFiguresList)
-
+        binding.backBtn.setOnClickListener {
+            MAIN.navController.navigate(R.id.action_historicalFiguresListFragment_to_searchFragment)
+        }
     }
 
 }

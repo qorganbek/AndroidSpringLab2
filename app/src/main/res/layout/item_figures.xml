@@ -15,7 +15,7 @@
         android:padding="16dp">
 
         <TextView
-            android:id="@+id/textViewName"
+            android:id="@+id/name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Name"
@@ -23,13 +23,11 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/textViewTitle"
+            android:id="@+id/title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Title"
             android:textSize="16sp" />
-
-        <!-- Add more TextViews for other fields as needed -->
 
     </LinearLayout>
 

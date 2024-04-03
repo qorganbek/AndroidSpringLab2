@@ -5,11 +5,10 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.historicalfigures.databinding.ItemFiguresBinding
+import com.example.historicalfigures.fragment.HistoricalFiguresListFragment
 import com.example.historicalfigures.model.entity.HistoricalFigures
 
-class HistoricalFiguresListAdapter : ListAdapter<HistoricalFigures, HistoricalFiguresListAdapter.ViewHolder>(HistoricalFiguresDiffUtil()) {
-
-    private val items: ArrayList<HistoricalFigures> = arrayListOf()
+class HistoricalFiguresListAdapter : ListAdapter<HistoricalFigures, HistoricalFiguresListAdapter.ViewHolder>(HistoricalFiguresDiffUtil())  {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(
@@ -19,12 +18,6 @@ class HistoricalFiguresListAdapter : ListAdapter<HistoricalFigures, HistoricalFi
                 false
             )
         )
-    }
-
-    fun setItems(offerList: List<HistoricalFigures>) {
-        items.clear()
-        items.addAll(offerList)
-        notifyDataSetChanged()
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
@@ -37,8 +30,8 @@ class HistoricalFiguresListAdapter : ListAdapter<HistoricalFigures, HistoricalFi
 
         fun bind(figure: HistoricalFigures){
             with(binding){
-                textViewName.text = figure.name
-                textViewTitle.text = figure.title
+                name.text = figure.name
+                title.text = figure.title
             }
         }
     }
