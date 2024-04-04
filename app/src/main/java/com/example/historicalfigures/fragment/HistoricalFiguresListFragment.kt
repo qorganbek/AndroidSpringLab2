@@ -34,11 +34,11 @@ class HistoricalFiguresListFragment : Fragment() {
             staticSearchBtn.setOnClickListener {
                 if(staticSearch.text.isNotEmpty()){
                     val query = staticSearch.text.toString().trim()
-                    val filteredList = adapter.items.filter {
+                    val filteredList = adapter.currentList.filter {
                         item ->
                         item.name.contains(query, ignoreCase = true)
                     }
-                    adapter.setItems(filteredList)
+                    adapter.submitList(filteredList)
                 }
             }
         }
@@ -60,7 +60,7 @@ class HistoricalFiguresListFragment : Fragment() {
         setupUI()
         viewModel.data.observe(viewLifecycleOwner, Observer {
                 newData ->
-            adapter.setItems(newData)
+            adapter.submitList(newData)
         })
         binding.backBtn.setOnClickListener {
             MAIN.navController.navigate(R.id.action_historicalFiguresListFragment_to_searchFragment)
