@@ -29,6 +29,27 @@
             android:text="Title"
             android:textSize="16sp" />
 
+        <TextView
+            android:id="@+id/born"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="No information about born"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/died"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="No information about died"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/nationality"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="No information about nationality"
+            android:textSize="14sp" />
+
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>

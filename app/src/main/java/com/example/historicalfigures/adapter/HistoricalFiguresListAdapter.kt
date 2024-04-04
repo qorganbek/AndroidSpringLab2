@@ -19,18 +19,7 @@ class HistoricalFiguresListAdapter : ListAdapter<HistoricalFigures, HistoricalFi
         )
     }
 
-//    fun setItems(list: List<HistoricalFigures>) {
-//        items.clear()
-//        items.addAll(list)
-//        notifyDataSetChanged()
-//    }
-
-//    override fun getItemCount(): Int {
-//        return items.size
-//    }
-
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-//        holder.bind(items[position])
         holder.bind(getItem(position))
     }
 
@@ -42,6 +31,15 @@ class HistoricalFiguresListAdapter : ListAdapter<HistoricalFigures, HistoricalFi
             with(binding){
                 name.text = figure.name
                 title.text = figure.title
+                if(figure.info.born != null){
+                    born.text = figure.info.born
+                }
+                if(figure.info.died != null){
+                    died.text = figure.info.died
+                }
+                if(figure.info.nationality != null){
+                    nationality.text = figure.info.nationality
+                }
             }
         }
     }
