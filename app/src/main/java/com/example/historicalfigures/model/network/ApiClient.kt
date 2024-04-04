@@ -1,5 +1,6 @@
 package com.example.historicalfigures.model.network
 
+import com.example.historicalfigures.R
 import com.example.historicalfigures.model.service.HistoricalFiguresService
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
@@ -7,9 +8,8 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 object ApiClient {
-
-    private val apiUrl: String = "https://api.api-ninjas.com/v1/"
-    private val api_key: String = "Y3cidImKQ7KxYtWYYTvNcg==qNgyZm4Sa8izzUod"
+        private val apiUrl: String = R.string.api_url.toString()
+        private val api_key: String = R.string.api_key.toString()
 
     private val client = OkHttpClient.Builder().apply {
         addInterceptor(Interceptor { chain ->  
