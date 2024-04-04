@@ -16,18 +16,18 @@
   Task Requirements:
   1. Use of RecyclerView to display the data with diff.util implemented +
   2. Use of Retrofit for making network requests +
-  3. Use of at least 5 fields from API +-
+  3. Use of at least 5 fields from API +
   4. Implementation of search functionality + 
-  5. Responsive and user-friendly application
+  5. Responsive and user-friendly application +
   Submission Guidelines:
   1. Create a private GitHub repository for the project. + 
   2. Create and upload a video demonstrating how the application works, including
-  searching and viewing the listed elements. - 
-  3. Send the submission form above
+  searching and viewing the listed elements. +
+  3. Send the submission form above +
   Grading:
   - API Integration: 4 points +
-  - RecyclerView with diff util: 2 points 
-  - Search form: 2 points 
+  - RecyclerView with diff util: 2 points +
+  - Search form: 2 points +
   - UI/UX: 1 point +
-  - Github with application video included: 1 point
+  - Github with application video included: 1 point +
   Good luck with your project! If you have any questions or need clarification, feel free to ask.
