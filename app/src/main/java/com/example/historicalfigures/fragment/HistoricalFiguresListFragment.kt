@@ -30,6 +30,17 @@ class HistoricalFiguresListFragment : Fragment() {
     private fun setupUI(){
         with(binding){
             figuresList.adapter = adapter
+
+            staticSearchBtn.setOnClickListener {
+                if(staticSearch.text.isNotEmpty()){
+                    val query = staticSearch.text.toString().trim()
+                    val filteredList = adapter.items.filter {
+                        item ->
+                        item.name.contains(query, ignoreCase = true)
+                    }
+                    adapter.setItems(filteredList)
+                }
+            }
         }
     }
 

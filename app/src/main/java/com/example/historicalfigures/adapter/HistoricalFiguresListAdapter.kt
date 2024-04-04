@@ -2,10 +2,8 @@ package com.example.historicalfigures.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.historicalfigures.databinding.ItemFiguresBinding
-import com.example.historicalfigures.fragment.HistoricalFiguresListFragment
 import com.example.historicalfigures.model.entity.HistoricalFigures
 
 class HistoricalFiguresListAdapter : RecyclerView.Adapter<HistoricalFiguresListAdapter.ViewHolder>() {

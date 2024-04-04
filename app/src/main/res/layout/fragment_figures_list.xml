@@ -35,6 +35,11 @@
             app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+    <Button
+        android:id="@+id/back_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Back" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/figuresList"
@@ -45,10 +50,6 @@
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         />
 
-    <Button
-        android:id="@+id/back_btn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Back" />
+
 
 </LinearLayout>

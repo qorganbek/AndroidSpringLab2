@@ -25,9 +25,9 @@
   searching and viewing the listed elements. - 
   3. Send the submission form above
   Grading:
-  - API Integration: 4 points
-  - RecyclerView with diff util: 2 points
-  - Search form: 2 points
-  - UI/UX: 1 point
+  - API Integration: 4 points +
+  - RecyclerView with diff util: 2 points 
+  - Search form: 2 points 
+  - UI/UX: 1 point +
   - Github with application video included: 1 point
   Good luck with your project! If you have any questions or need clarification, feel free to ask.
