@@ -7,10 +7,10 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.historicalfigures.model.network.ApiClient
 import android.widget.Toast
+import androidx.lifecycle.ViewModelProvider
 import com.example.historicalfigures.R
 import com.example.historicalfigures.databinding.FragmentSearchBinding
 import com.example.historicalfigures.model.entity.HistoricalFigures
-import com.example.historicalfigures.utils.FigureFragment
 import com.example.historicalfigures.utils.MAIN
 import retrofit2.Call
 import retrofit2.Callback
@@ -19,6 +19,7 @@ import retrofit2.Response
 class SearchFragment : Fragment() {
 
     private lateinit var binding: FragmentSearchBinding
+    private lateinit var viewModel: SharedViewModel
 
     override fun onCreateView(inflater: LayoutInflater,
                               container: ViewGroup?,
@@ -29,6 +30,7 @@ class SearchFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        viewModel = ViewModelProvider(requireActivity()).get(SharedViewModel::class.java)
         binding.mainSearch.setOnClickListener{
             if(binding.mainInput.text.isEmpty()){
                 Toast.makeText(requireContext(), "Please enter something", Toast.LENGTH_SHORT).show()
@@ -39,7 +41,8 @@ class SearchFragment : Fragment() {
                         response: Response<List<HistoricalFigures>>
                     ) {
                         response.body()?.let {
-                            FigureFragment.adapter.submitList(it)
+                            println("HistoricalFigureAPI $it")
+                            viewModel.updateData(it)
                         }
                     }
 

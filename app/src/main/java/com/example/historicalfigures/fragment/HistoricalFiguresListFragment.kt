@@ -5,17 +5,19 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import com.example.historicalfigures.R
 import com.example.historicalfigures.adapter.HistoricalFiguresListAdapter
 import com.example.historicalfigures.databinding.FragmentFiguresListBinding
-import com.example.historicalfigures.model.service.FakeService
-import com.example.historicalfigures.utils.FigureFragment
 import com.example.historicalfigures.utils.MAIN
 
 class HistoricalFiguresListFragment : Fragment() {
     companion object {
         fun newInstance() = HistoricalFiguresListFragment()
     }
+
+    private lateinit var viewModel: SharedViewModel
 
     private var _binding: FragmentFiguresListBinding? = null
     private val binding
@@ -31,6 +33,7 @@ class HistoricalFiguresListFragment : Fragment() {
         }
     }
 
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -42,8 +45,12 @@ class HistoricalFiguresListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        FigureFragment = newInstance()
+        viewModel = ViewModelProvider(requireActivity()).get(SharedViewModel::class.java)
         setupUI()
+        viewModel.data.observe(viewLifecycleOwner, Observer {
+                newData ->
+            adapter.setItems(newData)
+        })
         binding.backBtn.setOnClickListener {
             MAIN.navController.navigate(R.id.action_historicalFiguresListFragment_to_searchFragment)
         }

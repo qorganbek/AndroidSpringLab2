@@ -8,8 +8,9 @@ import com.example.historicalfigures.databinding.ItemFiguresBinding
 import com.example.historicalfigures.fragment.HistoricalFiguresListFragment
 import com.example.historicalfigures.model.entity.HistoricalFigures
 
-class HistoricalFiguresListAdapter : ListAdapter<HistoricalFigures, HistoricalFiguresListAdapter.ViewHolder>(HistoricalFiguresDiffUtil())  {
+class HistoricalFiguresListAdapter : RecyclerView.Adapter<HistoricalFiguresListAdapter.ViewHolder>() {
 
+    val items: ArrayList<HistoricalFigures> = arrayListOf()
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(
             ItemFiguresBinding.inflate(
@@ -20,8 +21,18 @@ class HistoricalFiguresListAdapter : ListAdapter<HistoricalFigures, HistoricalFi
         )
     }
 
+    fun setItems(list: List<HistoricalFigures>) {
+        items.clear()
+        items.addAll(list)
+        notifyDataSetChanged()
+    }
+
+    override fun getItemCount(): Int {
+        return items.size
+    }
+
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(getItem(position))
+        holder.bind(items[position])
     }
 
     inner class ViewHolder(
